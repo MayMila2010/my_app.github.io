@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My App</title>
+  <link href="styles.css" rel="stylesheet">
+  <style>/* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    text-align: center;
+  }
+
+  .close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+
+  .close-btn:hover,
+  .close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Styling for buttons inside the modal */
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+<header>
+<div class="header1">
+    <img class="logo" src="" alt="">
+    <div class="menu7">
+      <button class="button">Keyboard</button>
+      <button class="button"><a href="index1.html">Settings</a></button>
+    </div>
+  </div>
+  <input type="text" id="myInput" placeholder="Type here......">
+</header>
+
+<main>
+  <div class="container">
+    <div class="block">
+      <a class="menu-elements" href="#" id="back-link">Back</a>
+      <a class="menu-elements" href="#" id="logout-link">Log out</a>
+      <a class="menu-elements" href="#" id="help-link">Help</a>
+    </div>
+  </div>
+</main>
+
+<!-- Log out confirmation modal -->
+<div id="logoutModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="logout-close-btn">&times;</span>
+    <h2>Are you sure you want to log out?</h2>
+    <button id="yes-logout">Yes</button>
+    <button id="no-logout">No</button>
+  </div>
+</div>
+
+<!-- Help modal -->
+<div id="helpModal" class="modal">
+  <div class="modal-content">
+<span class="close-btn" id="help-close-btn">&times;</span>
+    <h2>Help</h2>
+    <p>Click the button below to watch a tutorial video on how to use the app.</p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Watch Help Video</a>
+    <br><br>
+    <button id="back-to-main">Back to Main Page</button>
+  </div>
+</div>
+<script>document.addEventListener("DOMContentLoaded", function () {
+  // Get the elements for the modals and buttons
+  const logoutModal = document.getElementById("logoutModal");
+  const helpModal = document.getElementById("helpModal");
+  const logoutLink = document.getElementById("logout-link");
+  const helpLink = document.getElementById("help-link");
+  const backToMainBtn = document.getElementById("back-to-main");
+
+  const logoutCloseBtn = document.getElementById("logout-close-btn");
+  const helpCloseBtn = document.getElementById("help-close-btn");
+
+  const yesLogoutBtn = document.getElementById("yes-logout");
+const noLogoutBtn = document.getElementById("no-logout");
+
+  // Open the logout modal when the "Log out" link is clicked
+  logoutLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    logoutModal.style.display = "block";
+  });
+
+  // Open the help modal when the "Help" link is clicked
+  helpLink.addEventListener("click", function (event) {
+    event.preventDefault();
+    helpModal.style.display = "block";
+  });
+
+  // Close the logout modal
+  logoutCloseBtn.addEventListener("click", function () {
+    logoutModal.style.display = "none";
+  });
+
+  // Close the help modal
+  helpCloseBtn.addEventListener("click", function () {
+    helpModal.style.display = "none";
+  });
+
+  // If "Yes" is clicked in the logout modal, show logged-out message and close the modal
+  yesLogoutBtn.addEventListener("click", function () {
+    alert("You are logged out!");
+    logoutModal.style.display = "none";
+  });
+
+
+
+  // If "No" is clicked in the logout modal, close it and return to the main page
+  noLogoutBtn.addEventListener("click", function () {
+    logoutModal.style.display = "none";
+  });
+
+  // Close help modal and go back to the main page
+  backToMainBtn.addEventListener("click", function () {
+    helpModal.style.display = "none";
+  });
+
+  // Close modals if user clicks outside the modal content
+  window.addEventListener("click", function (event) {
+    if (event.target === logoutModal) {
+      logoutModal.style.display = "none";
+    }
+    if (event.target === helpModal) {
+      helpModal.style.display = "none";
+    }
+  });
+});
+</script>
+<script src="script.js"></script>
+</body>
+</html>

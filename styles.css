@@ -1,0 +1,29 @@
+body{
+    background-color: red;
+    width:933px;
+    height:733px;
+    margin:0 auto;
+}
+.header1{
+    background-color: white;
+    display: inline-block;
+    width:784px;
+    height:593px;
+
+}
+
+a {
+    display:block;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column; 
+}
+
+.menu-elements {
+    text-decoration: none;
+    color: black;
+    margin: 5px 0; 
+}
